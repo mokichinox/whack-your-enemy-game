@@ -1,0 +1,111 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #fdfd96;
+    text-align: center;
+    color: #ff4500;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+  header {
+    background-color: #ffcc00;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .button:hover {
+    background-color: #cc3700;
+  }
+  footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffcc00;
+    border-radius: 20px;
+  }
+  .game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+  }
+  .hole {
+    width: 100px;
+    height: 100px;
+    background-color: #8b5a2b;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+  } 
+  .enemy {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        -webkit-user-drag: none;
+        user-select: none;
+        pointer-events: auto;
+        position: absolute;
+        /* Removed bottom property */
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+      }
+  @keyframes punch {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.8) rotate(-10deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+ 
+  @keyframes punchShake {
+    0% {
+      transform: scale(1) translate(0, 0) rotate(0deg);
+    }
+    20% {
+      transform: scale(0.9) translate(-5px, 0) rotate(-5deg);
+    }
+    40% {
+      transform: scale(1.1) translate(5px, 0) rotate(5deg);
+    }
+    60% {
+      transform: scale(0.95) translate(-3px, 0) rotate(-3deg);
+    }
+    80% {
+      transform: scale(1.05) translate(3px, 0) rotate(3deg);
+    }
+    100% {
+      transform: scale(1) translate(0, 0) rotate(0deg);
+    }
+  }
+
+  @keyframes redTint {
+    0% { filter: none; }
+    50% { filter: grayscale(100%) brightness(1) sepia(100%) saturate(8000%) hue-rotate(0deg); }
+    100% {  filter: grayscale(100%) brightness(1) sepia(100%) saturate(8000%) hue-rotate(0deg);}
+  }
+  
+  
+  
+  .punch-effect {
+    animation: punchShake 0.3s ease, redTint 0.3s ease;
+  }
